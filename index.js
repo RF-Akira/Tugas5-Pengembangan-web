@@ -27,25 +27,33 @@ function getContentType(ext) {
 const server = http.createServer((req, res) => {
   console.log(`Request masuk: ${req.url}`);
 
-  // Kalau user akses root '/', tampilkan index.html
-  let requested = req.url.split('?')[0];
-  if (requested === '/') requested = '/index.html';
+  // Sanitize URL to prevent directory traversal
+  const unsafePath = req.url.split('?')[0];
+  let safePath = path.normalize(unsafePath).replace(/^(\.\.[\/\\])+/, '');
 
-  // Tentukan path file yang diminta
-  const safePath = path.normalize(requested).replace(/^(\.\.[\/\\])+/, '');
-  const filePath = path.join(__dirname, requested);
+  // If root, serve index.html
+  if (safePath === '/') {
+    safePath = '/index.html';
+  }
 
-  // Ambil ekstensi file untuk menentukan tipe konten
+  const filePath = path.join(__dirname, safePath);
+
+  // Determine content type
   const ext = path.extname(filePath);
+  const contentType = getContentType(ext);
 
-  // Tentukan tipe konten (MIME type)
-  let contentType = getContentType(ext);
-
-  // Baca file dan kirim ke browser
+  // Read and serve file
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      res.end('<h1>404 - File Tidak Ditemukan</h1>');
+      if (err.code === 'ENOENT') {
+        // File not found
+        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end('<h1>404 - File Tidak Ditemukan</h1>');
+      } else {
+        // Other server error
+        res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end('<h1>500 - Server Error</h1>');
+      }
     } else {
       res.writeHead(200, { 'Content-Type': contentType });
       res.end(data);
