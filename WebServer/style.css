@@ -1,0 +1,340 @@
+/*
+  File: style.css
+  Deskripsi: CSS terpisah untuk resume
+*/
+
+:root {
+    --gradient-start : #0b2540;
+    --gradient-mid:   #153a6b;
+    --gradient-end:   #3b1367;
+    --primary-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); 
+    --primary-color: #5b3bd6;
+    --secondary-color: #2b6ca3;
+    --accent-color: #8a55ff;
+    --bg-dark-1: #071226;
+    --bg-dark-2: #0b1830;
+    --card-bg: #0f1a2b;
+    --muted-text: #aeb9d9;
+    --text-color: #dbe9ff;
+    --subtle-border: rgba(255,255,255,0.04);
+    --shadow: 0 8px 30px rgba(2,6,23,0.6);
+    --radius: 14px;
+}
+
+body {
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.cv-container {
+    max-width: 1000px;
+    margin: 32px auto;
+    background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    overflow: hidden;
+    border: 1px solid var(--subtle-border);
+}
+
+.download-container {
+    text-align: center;
+    padding: 24px 0 10px 0;
+}
+.download-btn {
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: var(--text-color);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.02em;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(8,18,40,0.6);
+}
+.download-btn:hover {
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(10,18,40,0.55);
+}
+
+.sidebar {
+    width: 34%;
+    background: linear-gradient(180deg, rgba(16,28,48,0.95), rgba(24,20,40,0.95));
+    padding: 48px 32px 40px 32px;
+    color: var(--muted-text);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    border-right: 1px solid var(--subtle-border);
+}
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid transparent; 
+    box-shadow: 0 8px 28px rgba(15,20,40,0.7);
+    background: linear-gradient(135deg, rgba(91,59,214,0.18), rgba(43,108,163,0.12));
+}
+.sidebar h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 7px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.08em;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+}
+.kontak p {
+    margin-bottom: 13px;
+    font-size: 0.97em;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.kontak i {
+    width: 22px;
+    margin-right: 7px;
+    color: var(--primary-color);
+    font-size: 1.13em;
+}
+.kontak a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.2s;
+}
+.kontak a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.keterampilan-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-bottom: 10px;
+}
+.keterampilan-list li {
+    background: linear-gradient(90deg, #e0f7fa 60%, #d0e6f6 100%);
+    color: var(--secondary-color);
+    border-radius: 16px;
+    padding: 6px 16px;
+    font-size: 0.93em;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(0,184,148,0.07);
+}
+.list-unstyled {
+    list-style: none;
+    padding: 0;
+    font-size: 0.98em;
+}
+.list-unstyled li {
+    margin-bottom: 9px;
+}
+
+.main-content {
+    width: 66%;
+    padding: 42px 40px 40px 40px;
+    background: linear-gradient(180deg, rgba(8,12,24,0.6), rgba(6,10,20,0.5));
+}
+.header {
+    text-align: left;
+    margin-bottom: 32px;
+}
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: var(--secondary-color);
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+.header .jabatan {
+    font-size: 1.18em;
+    color: var(--primary-color);
+    margin-top: 7px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.main-content h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 7px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    font-size: 1.13em;
+    letter-spacing: 1.1px;
+    font-weight: 700;
+}
+.item {
+    margin-bottom: 24px;
+}
+.item h3 {
+    font-size: 1.13em;
+    margin: 0;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+.item .info {
+    font-size: 0.97em;
+    font-style: italic;
+    color: #6c757d;
+    margin: 5px 0 10px 0;
+}
+.item ul {
+    padding-left: 20px;
+    margin: 0;
+}
+.timeline-section .item {
+    position: relative;
+    padding-left: 32px;
+    border-left: 2.5px solid rgba(255,255,255,0.03); 
+}
+.timeline-section .item:last-child {
+    border-left: 2.5px solid transparent;
+}
+.timeline-section .item::before {
+    content: '';
+    position: absolute;
+    left: -13px;
+    top: 7px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border: 2px solid rgba(255,255,255,0.03); 
+    box-shadow: 0 4px 12px rgba(6,10,20,0.6);
+}
+.achievements-list li {
+    margin-bottom: 13px;
+    line-height: 1.5;
+}
+.achievements-list li strong {
+    display: block;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+#sertifikasi .list-unstyled li {
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, font-weight 0.2s;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+#sertifikasi .list-unstyled li:hover {
+    color: var(--primary-color);
+    background: #e0f7fa;
+    font-weight: 600;
+}
+
+.publikasi-list li {
+    margin-bottom: 13px;
+    line-height: 1.5;
+}
+.publikasi-list li strong a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 600;
+}
+.publikasi-list li strong a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.publikasi-list li em {
+    color: #555;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.modal-content-image {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1001;
+}
+.modal-close-btn:hover {
+    color: #bbb;
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.qr-code-container {
+    text-align: center;
+}
+#qrcode {
+    margin: 0 auto;
+    padding: 7px;
+    background: #fff;
+    border: 1.5px solid #ddd;
+    display: inline-block;
+    border-radius: 8px;
+}
+.qr-code-container p {
+    font-size: 0.88em;
+    color: #666;
+    margin-top: 10px;
+}
+
+@media print {
+    .download-container, .modal-overlay { display: none !important; }
+    body, .cv-container { margin: 0 !important; padding: 0 !important; box-shadow: none !important; }
+    section { page-break-inside: avoid; }
+    .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .fade-in-section, .fade-in-section.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+    .publikasi-list li strong a { text-decoration: none !important; color: var(--secondary-color) !important; }
+}
+
+@media screen and (max-width: 900px) {
+    body { background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2)); }
+    .download-container { padding: 15px; }
+    .cv-container { flex-direction: column; width: 100%; margin: 0; box-shadow: none; border-radius: 0; border: none; }
+    .sidebar, .main-content { width: 100%; box-sizing: border-box; padding: 28px 14px; }
+    .sidebar { padding-bottom: 10px; border-right: none; border-bottom: 1.5px solid var(--subtle-border); }
+    .main-content { padding-top: 10px; }
+    .profile-pic { width: 100px; height: 100px; }
+    .header h1 { font-size: 1.6em; }
+    .header .jabatan { font-size: 1em; }
+    .timeline-section .item { border-left: 2px solid var(--subtle-border); padding-bottom: 13px; }
+    .timeline-section .item:last-of-type { border-left: 2px solid transparent; padding-bottom: 0; }
+}
+@media screen and (max-width: 600px) {
+    .sidebar, .main-content { padding: 14px 4vw; }
+    .profile-pic { width: 70px; height: 70px; }
+}
